@@ -18,6 +18,12 @@ public class User {
     @ColumnInfo(name = "password")
     String password;
 
+    public User(String email, String username, String password) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }

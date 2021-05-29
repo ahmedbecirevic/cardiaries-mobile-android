@@ -6,5 +6,5 @@ import androidx.room.Insert;
 public interface UserDao {
 
     @Insert
-    void register (String email, String username, String password);
+    void register (User user);
 }

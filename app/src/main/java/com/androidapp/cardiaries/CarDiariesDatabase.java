@@ -9,6 +9,7 @@ import androidx.room.RoomDatabase;
 public abstract class CarDiariesDatabase extends RoomDatabase {
     private static final String databaseName = "cardiaries";
     private static CarDiariesDatabase carDiariesDatabase;
+    public abstract UserDao userDao();
 
     public static synchronized CarDiariesDatabase getCarDiariesDatabase (Context context) {
         if (carDiariesDatabase == null) {
@@ -16,6 +17,4 @@ public abstract class CarDiariesDatabase extends RoomDatabase {
         }
         return carDiariesDatabase;
     }
-
-    public abstract UserDao userDao();
 }
