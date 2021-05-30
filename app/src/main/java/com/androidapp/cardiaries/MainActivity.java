@@ -2,6 +2,7 @@ package com.androidapp.cardiaries;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,5 +43,15 @@ public class MainActivity extends AppCompatActivity {
     private boolean validate (User user) {
         if (user.getEmail().isEmpty() || user.getUsername().isEmpty() || user.getPassword().isEmpty()) return false;
         return true;
+    }
+
+    public void onGoToLoginClick (View view) {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
+
+    public void onRegisterClick (View view) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
     }
 }
