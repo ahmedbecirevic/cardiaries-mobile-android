@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {User.class, Post.class}, version = 1)
 public abstract class CarDiariesDatabase extends RoomDatabase {
+
     private static final String databaseName = "cardiaries";
     private static CarDiariesDatabase carDiariesDatabase;
-    public abstract UserDao userDao();
 
     public static synchronized CarDiariesDatabase getCarDiariesDatabase (Context context) {
         if (carDiariesDatabase == null) {
@@ -17,4 +17,7 @@ public abstract class CarDiariesDatabase extends RoomDatabase {
         }
         return carDiariesDatabase;
     }
+
+    public abstract UserDao userDao();
+    public abstract PostDao postDao();
 }

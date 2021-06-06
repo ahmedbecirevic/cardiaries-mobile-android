@@ -2,6 +2,7 @@ package com.androidapp.cardiaries;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "users")
@@ -20,6 +21,12 @@ public class User {
 
     public User(String email, String username, String password) {
         this.email = email;
+        this.username = username;
+        this.password = password;
+    }
+
+    @Ignore
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
