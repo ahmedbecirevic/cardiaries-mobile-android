@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "posts")
 public class Post {
     @PrimaryKey(autoGenerate = true)
-    int id;
+    long id;
 
     @ColumnInfo
     String description;
@@ -14,7 +14,36 @@ public class Post {
     @ColumnInfo
     String carName;
 
-//    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    public Post(String description, String carName) {
+        this.description = description;
+        this.carName = carName;
+    }
+
+    //    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
 //    private byte[] image;
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public void setCarName(String carName) {
+        this.carName = carName;
+    }
 }

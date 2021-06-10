@@ -11,9 +11,9 @@ public abstract class CarDiariesDatabase extends RoomDatabase {
     private static final String databaseName = "cardiaries";
     private static CarDiariesDatabase carDiariesDatabase;
 
-    public static synchronized CarDiariesDatabase getCarDiariesDatabase (Context context) {
+    public static CarDiariesDatabase getCarDiariesDatabase (Context context) {
         if (carDiariesDatabase == null) {
-            carDiariesDatabase = Room.databaseBuilder(context, CarDiariesDatabase.class, databaseName).fallbackToDestructiveMigration().build();
+            carDiariesDatabase = Room.databaseBuilder(context, CarDiariesDatabase.class, databaseName).allowMainThreadQueries().build();
         }
         return carDiariesDatabase;
     }

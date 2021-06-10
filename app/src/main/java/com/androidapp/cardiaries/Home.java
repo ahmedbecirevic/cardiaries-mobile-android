@@ -1,19 +1,28 @@
 package com.androidapp.cardiaries;
 
+import androidx.annotation.BinderThread;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
 public class Home extends AppCompatActivity {
+    public static final String POST_ID = "Home/POST_ID";
     private BottomNavigationView bottomNavigationView;
     private ViewPager viewPager;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +33,9 @@ public class Home extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         viewPager = findViewById(R.id.fragment_container);
 
-        setUpAdapter(viewPager);
+//        listView = findViewById(R.id.list_view_container);
 
+        setUpAdapter(viewPager);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -42,6 +52,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
+//        setUpListAdapter();
     }
 
     private void setUpAdapter (ViewPager viewPager) {
@@ -71,4 +82,17 @@ public class Home extends AppCompatActivity {
             }
         }
     };
+
+//    private void setUpListAdapter () {
+//        List<Post> todos = CarDiariesDatabase.getCarDiariesDatabase(this).postDao().getAll();
+//        PostListAdapter adapter = new PostListAdapter(this, todos);
+//
+//        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener((parent, view, position, id) -> {
+//            long todoId = parent.getItemIdAtPosition(position);
+//            Intent intent = new Intent(Home.this, PostDataActivity.class);
+//            intent.putExtra(POST_ID, todoId);
+//            startActivity(intent);
+//        });
+//    }
 }

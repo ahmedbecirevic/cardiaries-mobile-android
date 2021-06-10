@@ -29,11 +29,9 @@ public class Login extends AppCompatActivity {
         if (validate(user)) {
             CarDiariesDatabase database = CarDiariesDatabase.getCarDiariesDatabase(getApplicationContext());
             UserDao userDao = database.userDao();
-            new Thread(() -> {
-                userExists[0] = userDao.login(username.getText().toString(), password.getText().toString());
-            }).start();
+            userExists[0] = userDao.login(username.getText().toString(), password.getText().toString());
             Log.d("app", userExists[0] + "  " + username.getText().toString());
-            if (userExists[0] > 0) {
+            if (userExists[0] == 1) {
                 Toast.makeText(getApplicationContext(), "Successfully Logged In!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, Home.class);
                 startActivity(intent);

@@ -44,16 +44,16 @@ public class MainActivity extends AppCompatActivity {
         if (validate(user)) {
             CarDiariesDatabase database = CarDiariesDatabase.getCarDiariesDatabase(getApplicationContext());
             UserDao userDao = database.userDao();
-            new Thread(() -> {
-                userDao.register(user);
-                userExists[0] = userDao.login(username.getText().toString(), password.getText().toString());
-            }).start();
+            UserDao userDaoTemp = database.userDao();
+            userExists[0] = userDaoTemp.checkAccount(username.getText().toString());
+            Log.d("app", userExists[0] + "  " + username.getText().toString());
             if (userExists[0] == 0) {
                 Toast.makeText(getApplicationContext(), "Successfully registered!", Toast.LENGTH_SHORT).show();
+                userDao.register(user);
                 Intent intent = new Intent(MainActivity.this, Home.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(getApplicationContext(), "Account already exists!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Account already exists!", Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(getApplicationContext(), "Some fields are missing!", Toast.LENGTH_SHORT).show();
