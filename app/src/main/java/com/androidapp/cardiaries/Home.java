@@ -33,6 +33,10 @@ public class Home extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         viewPager = findViewById(R.id.fragment_container);
 
+//        List<User> users = CarDiariesDatabase.getCarDiariesDatabase(getApplicationContext()).userDao().getUser(Login.getUserId());
+//        User user = users.get(0);
+//        PersonFragment.getUsername().setText(user.getUsername());
+
 //        listView = findViewById(R.id.list_view_container);
 
         setUpAdapter(viewPager);

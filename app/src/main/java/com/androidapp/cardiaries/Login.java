@@ -14,8 +14,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
+    public static final String USER_ID = "Login/USER_ID";
     EditText username, password;
     Button login_button;
+    private static long userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class Login extends AppCompatActivity {
     public void onLoginClick (View view) {
         int[] userExists = new int[1];
         User user = new User(username.getText().toString(), password.getText().toString());
+        userId = user.getId();
         if (validate(user)) {
             CarDiariesDatabase database = CarDiariesDatabase.getCarDiariesDatabase(getApplicationContext());
             UserDao userDao = database.userDao();
@@ -58,5 +62,9 @@ public class Login extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    public static long getUserId() {
+        return userId;
     }
 }

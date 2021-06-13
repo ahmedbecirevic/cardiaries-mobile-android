@@ -3,6 +3,8 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import java.util.List;
+
 @Dao
 public interface UserDao {
 
@@ -14,4 +16,7 @@ public interface UserDao {
 
     @Query("SELECT COUNT(*) FROM users WHERE username = :username")
     int checkAccount (String username);
+
+    @Query("SELECT * FROM users WHERE id = :id")
+    List<User> getUser (long id);
 }

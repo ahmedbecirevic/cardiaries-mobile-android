@@ -22,4 +22,7 @@ public interface PostDao {
 
     @Query("DELETE FROM posts WHERE id = :id")
     void deletePost (long id);
+
+    @Query("SELECT COUNT(*) FROM posts")
+    int getNumberOfPosts ();
 }
