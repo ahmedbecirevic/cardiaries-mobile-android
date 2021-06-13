@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +21,7 @@ public class PersonFragment extends Fragment {
     private Context context;
 //    private static EditText email;
 //    private static EditText password;
-//    private static EditText username;
+//    private TextView username;
 //    private static EditText numOfPosts;
 
 
