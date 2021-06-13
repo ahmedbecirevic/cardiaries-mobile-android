@@ -58,7 +58,7 @@ public class Home extends AppCompatActivity {
     private void setUpAdapter (ViewPager viewPager) {
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPageAdapter.addFragments(new HomeFragment());
-        viewPageAdapter.addFragments(new DashboardFragment());
+        viewPageAdapter.addFragments(new MapViewFragment());
         viewPageAdapter.addFragments(new PersonFragment());
         viewPager.setAdapter(viewPageAdapter);
     }

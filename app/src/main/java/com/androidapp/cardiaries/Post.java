@@ -8,10 +8,8 @@ public class Post {
     @PrimaryKey(autoGenerate = true)
     long id;
 
-    @ColumnInfo
     String description;
 
-    @ColumnInfo
     String carName;
 
     public Post(String description, String carName) {

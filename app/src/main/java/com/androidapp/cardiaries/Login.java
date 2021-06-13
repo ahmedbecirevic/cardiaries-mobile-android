@@ -2,7 +2,10 @@ package com.androidapp.cardiaries;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +24,8 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.login_username);
         password = findViewById(R.id.login_password);
         login_button = findViewById(R.id.login_button);
+//        ActionBar bar = getActionBar();
+//        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0000ff")));
     }
 
     public void onLoginClick (View view) {

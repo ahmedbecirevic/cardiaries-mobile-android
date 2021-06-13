@@ -33,11 +33,12 @@ public class PostDataActivity extends AppCompatActivity {
     }
 
     public void onRightButton (View view) {
-        Post post = new Post(description.getText().toString(), carName.getText().toString());
-        if (deleteButton.getText().toString() == "UPDATE POST") {
+        if (deleteButton.getText().toString().equals("UPDATE POST")) {
+            Post post = new Post(description.getText().toString(), carName.getText().toString());
             long id = getIdFromExtras();
             CarDiariesDatabase.getCarDiariesDatabase(this).postDao().updatePost(post.getCarName(), post.getDescription(), id);
         } else {
+            Post post = new Post(description.getText().toString(), carName.getText().toString());
             CarDiariesDatabase.getCarDiariesDatabase(this).postDao().makeNewPost(post);
         }
         Intent intent = new Intent(this, Home.class);
@@ -45,7 +46,7 @@ public class PostDataActivity extends AppCompatActivity {
     }
 
     public void onLeftButton (View view) {
-        if (deleteButton.getText().toString() == "DELETE POST") {
+        if (deleteButton.getText().toString().equals("DELETE POST")) {
             long id = getIdFromExtras();
             CarDiariesDatabase.getCarDiariesDatabase(this).postDao().deletePost(id);
         }
